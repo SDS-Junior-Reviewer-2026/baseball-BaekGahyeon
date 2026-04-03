@@ -12,22 +12,24 @@ class GameTest {
         game = new Game();
     }
 
+    private void assertIlligalArgument(String guessNumber) {
+        try {
+            game.guess(guessNumber);
+            fail();
+        } catch (IllegalArgumentException e) {
+
+        }
+    }
+
     @Test
     void createGame() {
         assertNotNull(game);
     }
 
     @Test
-    void throwExceptionWhenInputNull() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.guess(null);
-        });
-    }
-
-    @Test
-    void throwExceptionWhenInputLengthIsUnmatched() {
-        assertThrows(IllegalArgumentException.class, () -> {
-            game.guess("12");
-        });
+    void throwIlligalArgumentExceptionInvalidInput() {
+        assertIlligalArgument(null);
+        assertIlligalArgument("12");
+        assertIlligalArgument("1234");
     }
 }
