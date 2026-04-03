@@ -32,6 +32,7 @@ class GameTest {
         assertIlligalArgument("12");
         assertIlligalArgument("1234");
         assertIlligalArgument("12s");
+        assertIlligalArgument("121");
     }
 
 }
